@@ -24,16 +24,10 @@ Long description of module's purpose
 
     # always loaded
     'data': [
-        'views/views.xml',
-        'views/templates.xml',
+        'security/ir.model.access.csv',
         'views/plan_sale_order_view.xml',
         'views/sale_order_view.xml',
         'data/groups_1.xml',
-        'security/ir.model.access.csv',
-    ],
-    # only loaded in demonstration mode
-    'demo': [
-        'demo/demo.xml',
     ],
 }
 
