@@ -25,6 +25,7 @@ Long description of module's purpose
         'security/record_rule.xml',
         'security/ir.model.access.csv',
         'data/groups.xml',
+        'data/users.xml',
         'views/crm_lead_view.xml',
         'views/crm_team_view.xml',
         'views/sales_detail_report_view.xml',

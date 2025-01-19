@@ -1,5 +1,6 @@
 from odoo import models, fields, exceptions, api
 
+
 class Appover(models.Model):
     _name = 'approver'
     _inherit = ['mail.thread', 'mail.activity.mixin']
@@ -15,20 +16,17 @@ class Appover(models.Model):
 
     plan_sale_order_id = fields.Many2one('plan.sale.order', string='Plan Sale Order')
 
-    @api.depends('partner_id')
     def _compute_is_approver(self):
+        current_user = self.env.user
         for record in self:
-            current_user = self.env.user
-            partner_to_approve = record.partner_id.user_ids.filtered(
-                lambda user: user.id == current_user.id)
-            record.is_approver = bool(partner_to_approve)
+            record.is_approver = bool(record.partner_id.user_ids.filtered(lambda u: u.id == current_user.id))
 
     def action_approve(self):
         for record in self:
             if not record.is_approver:
                 raise exceptions.UserError("You do not have the right to approve this plan!")
             record.status = 'approved'
-            mess = f"Business plan was approved by { record.partner_id.name }."
+            mess = f"Business plan was approved by {record.partner_id.name}."
             creator_user_id = self.plan_sale_order_id.create_uid
             self.plan_sale_order_id.message_post(
                 body=mess,
@@ -43,7 +41,7 @@ class Appover(models.Model):
             if not record.is_approver:
                 raise exceptions.UserError("You do not have the right to reject this plan!")
             record.status = 'rejected'
-            mess = f"Business plan was rejected by { record.partner_id.name }."
+            mess = f"Business plan was rejected by {record.partner_id.name}."
             creator_user_id = self.plan_sale_order_id.create_uid
             self.plan_sale_order_id.message_post(
                 body=mess,
@@ -61,8 +59,3 @@ class Appover(models.Model):
                 record.plan_sale_order_id.status = 'rejected'
             else:
                 record.plan_sale_order_id.status = 'sent'
-
-
-
-
-

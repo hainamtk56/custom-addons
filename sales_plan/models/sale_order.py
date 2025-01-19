@@ -16,19 +16,11 @@ class SaleOder(models.Model):
         return super().action_confirm()
 
     def action_create_plan_sale_order(self):
-        if self.plan_sale_order_id:
-            return {
-                'type': 'ir.actions.act_window',
-                'res_model': 'plan.sale.order',
-                'view_mode': 'form',
-                'res_id': self.plan_sale_order_id.id,
-            }
-        else:
-            return {
-                'type': 'ir.actions.act_window',
-                'name': 'Create Plan Sale Order',
-                'res_model': 'plan.sale.order',
-                'view_mode': 'form',
-                'context': {'default_order_id': self.id}
+        return {
+            'type': 'ir.actions.act_window',
+            'name': 'Create Plan Sale Order',
+            'res_model': 'plan.sale.order',
+            'view_mode': 'form',
+            'context': {'default_order_id': self.id}
             }
 

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <!-- Tạo người dùng trưởng phòng bán hàng -->
+        <record id="sm1" model="res.users">
+            <field name="name">Sales Manager 1</field>
+            <field name="login">sm1</field>
+            <field name="password">odoo</field>
+            <field name="email">sm1@gmail.com</field>
+            <field name="notification_type">inbox</field>
+            <field name="groups_id" eval="[(4, ref('group_sales_manager')), (4, ref('sales_plan.group_business_plan_list_viewer'))]"/>
+        </record>
+
+        <record id="sm2" model="res.users">
+            <field name="name">Sales Manager 2</field>
+            <field name="login">sm2</field>
+            <field name="password">odoo</field>
+            <field name="email">sm2@gmail.com</field>
+            <field name="notification_type">inbox</field>
+            <field name="groups_id" eval="[(4, ref('group_sales_manager')), (4, ref('sales_plan.group_business_plan_list_viewer'))]"/>
+        </record>
+
+        <!-- Tạo người dùng trưởng nhóm bán hàng -->
+        <record id="stl1" model="res.users">
+            <field name="name">Sales Team Leader 1</field>
+            <field name="login">stl1</field>
+            <field name="password">odoo</field>
+            <field name="email">stl1@gmail.com</field>
+            <field name="notification_type">inbox</field>
+            <field name="groups_id" eval="[(4, ref('group_sales_team_leader'))]"/>
+        </record>
+
+        <record id="stl2" model="res.users">
+            <field name="name">Sales Team Leader 2</field>
+            <field name="login">stl2</field>
+            <field name="password">odoo</field>
+            <field name="email">stl2@gmail.com</field>
+            <field name="notification_type">inbox</field>
+            <field name="groups_id" eval="[(4, ref('group_sales_team_leader'))]"/>
+        </record>
+
+        <!-- Tạo người dùng nhân viên bán hàng -->
+        <record id="se1" model="res.users">
+            <field name="name">Sales Employee 1</field>
+            <field name="login">se1</field>
+            <field name="password">odoo</field>
+            <field name="email">se1@gmail.com</field>
+            <field name="notification_type">inbox</field>
+            <field name="groups_id" eval="[(4, ref('group_sales_employee'))]"/>
+        </record>
+
+        <record id="se2" model="res.users">
+            <field name="name">Sales Employee 2</field>
+            <field name="login">se2</field>
+            <field name="password">odoo</field>
+            <field name="email">se2@gmail.com</field>
+            <field name="notification_type">inbox</field>
+            <field name="groups_id" eval="[(4, ref('group_sales_employee'))]"/>
+        </record>
+
+    </data>
+</odoo>
