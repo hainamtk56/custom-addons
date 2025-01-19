@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="view_sale_order_form" model="ir.ui.view">
+            <field name="name">sale.order.form</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//header//button[@name='action_preview_sale_order']" position="after">
+                    <button class="oe_stat_button" name="action_create_plan_sale_order" type="object"
+                        string="Create Plan Sale Order"
+                        invisible="plan_sale_order_id != False"
+                    >
+                    </button>
+                </xpath>
+                <xpath expr="//field[@name='payment_term_id']" position="after">
+                    <field name="plan_sale_order_id" readonly="1" domain="[('order_id', '=', id)]"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

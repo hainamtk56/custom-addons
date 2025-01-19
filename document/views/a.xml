@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="message_attachment_format" inherit_id="mail.message_attachment_format">
+        <xpath expr="//t[@t-if='attachment.access_token']/div[hasclass('o_attachment_delete')]" position="replace"/>
+        <xpath expr="//t[@t-else='']/div[hasclass('o_attachment_delete')]" position="replace"/>
+    </template>
+</odoo>

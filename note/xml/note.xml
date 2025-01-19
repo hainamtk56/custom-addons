@@ -1,0 +1,26 @@
+<!-- Định nghĩa model trong ir.model -->
+<record id="model_custom_model" model="ir.model">
+    <field name="name">Custom Model</field>
+    <field name="model">custom.model</field>
+</record>
+
+<!-- Tạo quyền truy cập, use both model and model_id when add new record to ir.model.access -->
+<record id="access_custom_model" model="ir.model.access">
+    <field name="name">custom.access</field>
+    <field name="model">custom.model</field>
+    <field name="model_id" ref="model_custom_model"/>
+    <field name="perm_read" eval="1"/>
+</record>
+
+<!-- Tạo action -->
+<record id="action_custom" model="ir.actions.act_window">
+    <field name="name">Custom Action</field>
+    <field name="res_model">custom.model</field>
+    <field name="view_mode">tree,form</field>
+</record>
+
+options="{'no_edit': True, 'no_create': True, 'no_open': True}"
+
+model: Dùng để chỉ định trực tiếp tên technical của model
+model_id: Dùng để tham chiếu đến bản ghi trong bảng ir.model
+res_model: Dùng trong actions và attachments để chỉ định model đích cần tương tác

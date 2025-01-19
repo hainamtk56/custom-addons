@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <!-- Phòng Sản Xuất -->
+        <record id="department_manufacturing" model="hr.department">
+            <field name="name">Manufacturing Department</field>
+            <field name="active" eval="True"/>
+        </record>
+
+        <!-- Phòng IT -->
+        <record id="department_it" model="hr.department">
+            <field name="name">IT Department</field>
+            <field name="active" eval="True"/>
+        </record>
+    </data>
+</odoo>

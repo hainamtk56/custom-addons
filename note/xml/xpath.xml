@@ -1,0 +1,11 @@
+<odoo>
+    <xpath expr="//div[contains(@class, 'o_form_buttons_edit')]" position="inside"/>
+    <xpath expr="//form/sheet/group" position="after"/>
+    <xpath expr="//field[@name='street']/.." position="before"/> <!-- chọn phần tử cha -->
+    <xpath expr="//field[@name='state' and @readonly='1']" position="replace"/>
+    <xpath expr="(//field[@name='category_id'])[1]" position="attributes"> <!-- chọn phần tử đầu tiên -->
+        <attribute name="readonly">1</attribute>
+    </xpath>
+</odoo>
+
+

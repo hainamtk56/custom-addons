@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!-- form view for wizard -->
+    <record id="view_po_report_wizard" model="ir.ui.view">
+        <field name="name">po.report.wizard</field>
+        <field name="model">po.report.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="month"/>
+                        <field name="department_ids" widget="many2many_tags"/>
+                    </group>
+                    <footer>
+                        <button string="Export Data" name="action_export_data" type="object" class="btn btn-primary"/>
+                        <button string="Cancel" class="btn btn-secondary" special="cancel"/>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- list view for report -->
+    <record id="view_po_report_list" model="ir.ui.view">
+        <field name="name">view.po.report.list</field>
+        <field name="model">po.report</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="department_id"/>
+                <field name="limit"/>
+                <field name="actual_spending"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- menu action for wizard -->
+    <record id="action_po_report_wizard" model="ir.actions.act_window">
+        <field name="name">Department Purchase Order Report</field>
+        <field name="res_model">po.report.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="view_id" ref="view_po_report_wizard"/>
+    </record>
+
+    <menuitem id="menu_report_for_accountant"
+              parent="purchase.purchase_report_main"
+              groups="purchase_extension.group_accountant"
+              action="action_po_report_wizard"
+              sequence="20"/>
+</odoo>

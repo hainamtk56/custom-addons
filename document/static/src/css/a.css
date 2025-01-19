@@ -1,0 +1,5 @@
+span[class="o-dropdown-item dropdown-item o-navigable px-2 py-1 d-flex align-items-center rounded-0"][title="Delete"] {
+    display: none !important;
+}
+
+/*<span class="o-dropdown-item dropdown-item o-navigable px-2 py-1 d-flex align-items-center rounded-0 focus" role="menuitem" tabindex="0" title="Delete"><i class="fa-fw fa fa-trash"></i><span class="mx-2">Delete</span></span>*/

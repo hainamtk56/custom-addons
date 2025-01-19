@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data noupdate="0">
+        <!--        nhóm trưởng phòng bán hàng-->
+        <record id="group_sales_manager" model="res.groups">
+            <field name="name">Sales Manager</field>
+            <field name="category_id" ref="base.module_category_sales"/>
+            <field name="implied_ids" eval="[(4, ref('sales_team.group_sale_manager'))]"/>
+        </record>
+
+        <!--        nhóm trưởng nhóm bán hàng-->
+        <record id="group_sales_team_leader" model="res.groups">
+            <field name="name">Sales Team Leader</field>
+            <field name="category_id" ref="base.module_category_sales"/>
+            <field name="implied_ids" eval="[(4, ref('sales_team.group_sale_manager'))]"/>
+        </record>
+
+        <!--        nhóm nhân viên bán hàng-->
+        <record id="group_sales_employee" model="res.groups">
+            <field name="name">Sales Employee</field>
+            <field name="category_id" ref="base.module_category_sales"/>
+            <field name="implied_ids" eval="[(4, ref('sales_team.group_sale_salesman'))]"/>
+        </record>
+
+    </data>
+</odoo>

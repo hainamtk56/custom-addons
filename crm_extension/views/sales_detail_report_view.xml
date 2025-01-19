@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Form view cho wizard -->
+    <record id="view_sales_detail_report_wizard_form" model="ir.ui.view">
+        <field name="name">sales.detail.report.wizard.form</field>
+        <field name="model">sales.report.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="month"/>
+                    <field name="sales_team_ids" widget="many2many_tags"/>
+                </group>
+                <footer>
+                    <button string="Export Data" name="action_generate_detail_report" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!-- list view cho báo cáo chi tiết -->
+    <record id="crm_lead_detail_report_list" model="ir.ui.view">
+        <field name="name">crm.lead.detail.report.list</field>
+        <field name="model">crm.lead</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="user_id"/>
+                <field name="team_id"/>
+                <field name="minimum_revenue"/>
+                <field name="actual_revenue"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Menu action cho wizard -->
+    <record id="action_sales_detail_report_wizard" model="ir.actions.act_window">
+        <field name="name">Sales Detail Report</field>
+        <field name="res_model">sales.report.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="view_id" ref="view_sales_detail_report_wizard_form"/>
+    </record>
+
+    <!-- Menu items -->
+    <menuitem id="crm_menu_detail_report"
+              name="Detail Report"
+              action="action_sales_detail_report_wizard"
+              parent="crm.crm_menu_report"
+              groups="crm_extension.group_sales_manager"
+              sequence="10"/>
+</odoo>

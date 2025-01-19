@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!--        nhóm kế toán viên -->
+        <record id="group_accountant" model="res.groups">
+            <field name="name">Accountant</field>
+            <field name="implied_ids" eval="[(4, ref('purchase.group_purchase_manager'))]"/>
+        </record>
+
+        <!--        nhóm nhân viên mua hàng-->
+        <record id="group_purchasing_staff" model="res.groups">
+            <field name="name">Purchasing Staff</field>
+            <field name="implied_ids" eval="[(4, ref('purchase.group_purchase_manager'))]"/>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_crm_extension_sales_report_wizard,crm_extension.sales_report_wizard,model_sales_report_wizard,base.group_user,1,1,1,1
+access_crm_lead_sales_manager,crm.lead.sales.manager.access,crm.model_crm_lead,group_sales_manager,1,1,1,1
+access_crm_lead_sales_team_leader,crm.lead.sales.team.leader.access,crm.model_crm_lead,group_sales_team_leader,1,1,1,1
+access_crm_lead_sales_employee,crm.lead.sales.employee.access,crm.model_crm_lead,group_sales_employee,1,1,1,1
+access_sale_order_sales_manager,sale.order.sales.manager.access,sale.model_sale_order,group_sales_manager,1,1,1,1
+access_sale_order_sales_team_leader,sale.order.sales.team.leader.access,sale.model_sale_order,group_sales_team_leader,1,1,1,1
+access_sale_order_sales_employee,sale.order.sales.employee.access,sale.model_sale_order,group_sales_employee,1,1,1,1
+access_sales_target_report,crm_extension.sales.target.report.access,crm_extension.model_sales_target_report,group_sales_manager,1,1,1,1

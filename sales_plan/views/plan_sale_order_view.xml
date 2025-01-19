@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <!-- List view definition -->
+        <record id="view_plan_sale_order_list" model="ir.ui.view">
+            <field name="name">plan.sale.order.list</field>
+            <field name="model">plan.sale.order</field>
+            <field name="arch" type="xml">
+                <list create="0">
+                    <field name="name"/>
+                    <field name="order_id"/>
+                    <field name="information"/>
+                    <field name="status"/>
+                </list>
+            </field>
+        </record>
+
+        <!-- Form view definition -->
+        <record id="view_plan_sale_order_form" model="ir.ui.view">
+            <field name="name">plan.sale.order.form</field>
+            <field name="model">plan.sale.order</field>
+            <field name="arch" type="xml">
+                <form create="0">
+                    <header>
+                        <button class="btn btn-primary"
+                                invisible="create_uid != uid or status not in ['draft', 'rejected']"
+                                type="object" name="action_submit">Submit</button>
+                        <field name="status" widget="statusbar" statusbar_visible="draft,sent,approved,rejected"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <field name="name" readonly="status not in ['draft', 'rejected']"/>
+                            <field name="order_id"/>
+                            <field name="information" readonly="status not in ['draft', 'rejected']"/>
+                        </group>
+                        <notebook>
+                            <page string="Approvers List" name="approvers_list">
+                                <field name="approvers" readonly="status not in ['draft', 'rejected']">
+                                    <list editable="bottom" create="create_uid == uid">
+                                        <field name="partner_id"/>
+                                        <field name="is_approver" column_invisible="1"/>
+                                        <field name="status" readonly="1"/>
+                                        <button class="btn btn-success me-5" string="Approve" type="object" name="action_approve" invisible="status != 'pending' or create_uid == uid or is_approver != True"/>
+                                        <button class="btn btn-danger" string="Reject" type="object" name="action_reject" invisible="status != 'pending' or create_uid == uid or is_approver != True"/>
+                                    </list>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                <chatter/>
+                </form>
+            </field>
+        </record>
+
+        <!-- Action to open the views -->
+        <record id="action_plan_sale_order" model="ir.actions.act_window">
+            <field name="name">Plan Sale Orders</field>
+            <field name="res_model">plan.sale.order</field>
+            <field name="view_mode">list,form</field>
+            <field name="view_id" ref="view_plan_sale_order_list"/>
+        </record>
+
+        <!-- Menu item to access the views -->
+        <menuitem id="menu_plan_sale_order_root" name="Plan Sale Orders" sequence="10" groups="sales_plan.group_business_plan_list_viewer"/>
+        <menuitem id="menu_plan_sale_order" name="Plan Sale Orders" parent="menu_plan_sale_order_root"
+                  action="action_plan_sale_order" sequence="10"/>
+    </data>
+</odoo>

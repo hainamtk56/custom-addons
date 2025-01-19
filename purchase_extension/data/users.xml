@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <!-- Tạo người dùng nhân viên mua hàng -->
+        <record id="purchasing_staff_1" model="res.users">
+            <field name="name">Purchasing Staff 1</field>
+            <field name="login">ps1</field>
+            <field name="password">odoo</field>
+            <field name="email">ps1@gmail.com</field>
+            <field name="notification_type">inbox</field>
+            <field name="groups_id" eval="[(4, ref('group_purchasing_staff'))]"/>
+        </record>
+
+        <record id="purchasing_staff_2" model="res.users">
+            <field name="name">Purchasing Staff 2</field>
+            <field name="login">ps2</field>
+            <field name="password">odoo</field>
+            <field name="email">ps2@gmail.com</field>
+            <field name="notification_type">inbox</field>
+            <field name="groups_id" eval="[(4, ref('group_purchasing_staff'))]"/>
+        </record>
+
+        <record id="purchasing_staff_3" model="res.users">
+            <field name="name">Purchasing Staff 3</field>
+            <field name="login">ps3</field>
+            <field name="password">odoo</field>
+            <field name="email">ps3@gmail.com</field>
+            <field name="notification_type">inbox</field>
+            <field name="groups_id" eval="[(4, ref('group_purchasing_staff'))]"/>
+        </record>
+
+        <record id="purchasing_staff_4" model="res.users">
+            <field name="name">Purchasing Staff 4</field>
+            <field name="login">ps4</field>
+            <field name="password">odoo</field>
+            <field name="email">ps4@gmail.com</field>
+            <field name="notification_type">inbox</field>
+            <field name="groups_id" eval="[(4, ref('group_purchasing_staff'))]"/>
+        </record>
+
+<!--        tạo người dùng kế toán viên-->
+        <record id="accountant_1" model="res.users">
+            <field name="name">Accountant 1</field>
+            <field name="login">a1</field>
+            <field name="password">odoo</field>
+            <field name="email">hainamtk56@gmail.com</field>
+            <field name="notification_type">inbox</field>
+            <field name="groups_id" eval="[(4, ref('group_accountant'))]"/>
+        </record>
+
+        <record id="accountant_2" model="res.users">
+            <field name="name">Accountant 2</field>
+            <field name="login">a2</field>
+            <field name="password">odoo</field>
+            <field name="email">a2@gmail.com</field>
+            <field name="notification_type">inbox</field>
+            <field name="groups_id" eval="[(4, ref('group_accountant'))]"/>
+        </record>
+
+        <record id="accountant_3" model="res.users">
+            <field name="name">Accountant 3</field>
+            <field name="login">a3</field>
+            <field name="password">odoo</field>
+            <field name="email">a3@gmail.com</field>
+            <field name="notification_type">inbox</field>
+            <field name="groups_id" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+    </data>
+</odoo>

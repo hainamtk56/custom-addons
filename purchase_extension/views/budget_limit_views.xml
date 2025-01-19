@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <!-- list view cho budget limit -->
+        <record id="view_budget_limit_list" model="ir.ui.view">
+            <field name="name">budget.limit.list</field>
+            <field name="model">budget.limit</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="staff"/>
+                    <field name="limit"/>
+                </list>
+            </field>
+        </record>
+        <!--        form-->
+        <record id="view_budget_limit_form" model="ir.ui.view">
+            <field name="name">budget.limit.form</field>
+            <field name="model">budget.limit</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="staff"/>
+                            <field name="limit"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!--        action-->
+        <record id="action_budget_limit" model="ir.actions.act_window">
+            <field name="name">Budget Limit</field>
+            <field name="res_model">budget.limit</field>
+            <field name="view_mode">list,form</field>
+            <field name="target">current</field>
+            <field name="view_id" ref="view_budget_limit_list"/>
+        </record>
+
+        <menuitem id="menu_budget_limit"
+                  name="Budget Limit"
+                  action="action_budget_limit"
+                  parent="purchase.menu_purchase_config"
+                  groups="purchase_extension.group_accountant"
+                  sequence="5"/>
+    </data>
+</odoo>

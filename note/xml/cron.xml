@@ -1,0 +1,2 @@
+<field name='interval_number'>2</field>
+<field name='interval_type'>hours</field>  <!-- chạy mỗi 2 giờ 1 lần -->

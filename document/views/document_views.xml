@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Form View -->
+    <record id="view_document_form" model="ir.ui.view">
+        <field name="name">custom.document.form</field>
+        <field name="model">custom.document</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <!-- Upload một tệp -->
+                        <field name="file" filename="file_name" widget="attachment"/>
+                        <field name="file_name" invisible="1"/>
+                    </group>
+                </sheet>
+                <!-- Chatter -->
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree View -->
+    <record id="view_document_list" model="ir.ui.view">
+        <field name="name">custom.document.list</field>
+        <field name="model">custom.document</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_document" model="ir.actions.act_window">
+        <field name="name">Tài liệu</field>
+        <field name="res_model">custom.document</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Menu -->
+    <menuitem
+        id="menu_document"
+        name="Document"
+        action="action_document"/>
+</odoo>

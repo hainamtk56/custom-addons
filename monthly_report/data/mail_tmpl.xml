@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="mail_template_monthly_report" model="mail.template">
+        <field name="name">Monthly Report Email Template</field>
+        <field name="model_id" ref="monthly_report.model_monthly_report"/>
+        <field name="email_from">admin@yourcompany.example.com</field>
+        <field name="subject">Monthly Report</field>
+        <field name="body_html" type="html">
+            <div style="font-family: Arial, sans-serif; font-size: 14px; color: #333;">
+                <h3 style="margin-top: 30px;">Sales Team Report</h3>
+                <table style="border: 1px solid #ddd; border-collapse: collapse; width: 100%; margin-top: 10px;">
+                    <thead>
+                        <tr style="background-color: #f2f2f2; text-align: left;">
+                            <th style="border: 1px solid #ddd; padding: 8px;">Team Name</th>
+                            <th style="border: 1px solid #ddd; padding: 8px;">Actual Revenue</th>
+                            <th style="border: 1px solid #ddd; padding: 8px;">Difference</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <t t-set="teams" t-value="env['crm.team'].search([])"/>
+                        <t t-foreach="teams" t-as="team">
+                            <tr>
+                                <td style="border: 1px solid #ddd; padding: 8px;">
+                                    <t t-out="team.name"/>
+                                </td>
+                                <td style="border: 1px solid #ddd; padding: 8px;">
+                                    <t t-out="team.actual_revenue"/>
+                                </td>
+                                <td style="border: 1px solid #ddd; padding: 8px;">
+                                    <t t-out="team.sale_diff"/>
+                                </td>
+                            </tr>
+                        </t>
+                    </tbody>
+                </table>
+
+                <h3 style="margin-top: 30px;">Department Report</h3>
+                <table style="border: 1px solid #ddd; border-collapse: collapse; width: 100%; margin-top: 10px;">
+                    <thead>
+                        <tr style="background-color: #f2f2f2; text-align: left;">
+                            <th style="border: 1px solid #ddd; padding: 8px;">Department Name</th>
+                            <th style="border: 1px solid #ddd; padding: 8px;">Actual Spending</th>
+                            <th style="border: 1px solid #ddd; padding: 8px;">Difference</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <t t-set="departments" t-value="env['hr.department'].search([])"/>
+                        <t t-foreach="departments" t-as="dept">
+                            <tr>
+                                <td style="border: 1px solid #ddd; padding: 8px;">
+                                    <t t-out="dept.name"/>
+                                </td>
+                                <td style="border: 1px solid #ddd; padding: 8px;">
+                                    <t t-out="dept.actual_spending"/>
+                                </td>
+                                <td style="border: 1px solid #ddd; padding: 8px;">
+                                    <t t-out="dept.po_diff"/>
+                                </td>
+                            </tr>
+                        </t>
+                    </tbody>
+                </table>
+            </div>
+        </field>
+    </record>
+
+    <record id="testtt" model="mail.template">
+        <field name="name">test</field>
+        <field name="model_id" ref="monthly_report.model_monthly_report"/>
+<!--        <field name="email_from">admin@yourcompany.example.com</field>-->
+        <field name="subject">Monthly Report</field>
+        <field name="body_html" type="html">
+            <span>abc</span>
+        </field>
+    </record>
+</odoo>
