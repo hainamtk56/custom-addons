@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
+import calendar
+import json
+from datetime import datetime
+
 from odoo import http
 from odoo.http import request
-from datetime import datetime
-import json
-import calendar
 
 
 class MonthlyReport(http.Controller):
@@ -42,7 +43,6 @@ class MonthlyReport(http.Controller):
 
             sale_diff = actual_revenue - target_revenue
 
-
             team_results.append({
                 'sales_team_name': team.name,
                 'real_revenue': actual_revenue,
@@ -70,7 +70,6 @@ class MonthlyReport(http.Controller):
         result['purchase'] = department_results
         return result
 
-
     @http.route('/monthly_report', type='http', auth='public', methods=['POST'], csrf=False)
     def index(self, **kw):
         try:
@@ -97,4 +96,3 @@ class MonthlyReport(http.Controller):
                 "status": "error",
                 "message": str(e),
             })
-

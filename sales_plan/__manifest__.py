@@ -30,4 +30,3 @@ Long description of module's purpose
         'data/groups_1.xml',
     ],
 }
-

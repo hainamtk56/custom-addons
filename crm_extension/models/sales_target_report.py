@@ -1,6 +1,7 @@
 # models/sales_target_report.py
 from odoo import models, fields
 
+
 class SalesTargetReport(models.Model):
     _name = 'sales.target.report'
     _description = 'Sales Target Report'

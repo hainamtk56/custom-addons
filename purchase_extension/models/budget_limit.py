@@ -26,5 +26,3 @@ class BudgetLimit(models.Model):
         for record in self:
             if self.search_count([('staff', '=', record.staff.id)]) > 1:
                 raise ValidationError('Each staff member can have only one budget limit')
-
-

@@ -1,32 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-<record id="crm_team_salesteams_view_form_inherit" model="ir.ui.view">
-    <field name="name">crm.team.inherit.form</field>
-    <field name="model">crm.team</field>
-    <field name="inherit_id" ref="sales_team.crm_team_view_form"/>
-    <field name="arch" type="xml">
-        <xpath expr="//page" position="before">
-            <page string="Monthly Sales Targets (Before VAT)" name="monthly_sales_targets" groups="crm_extension.group_sales_manager">
-                <group>
+    <record id="crm_team_salesteams_view_form_inherit" model="ir.ui.view">
+        <field name="name">crm.team.inherit.form</field>
+        <field name="model">crm.team</field>
+        <field name="inherit_id" ref="sales_team.crm_team_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page" position="before">
+                <page string="Monthly Sales Targets (Before VAT)" name="monthly_sales_targets"
+                      groups="crm_extension.group_sales_manager">
                     <group>
-                        <field name="target_january" widget="monetary"/>
-                        <field name="target_february" widget="monetary"/>
-                        <field name="target_march" widget="monetary"/>
-                        <field name="target_april" widget="monetary"/>
-                        <field name="target_may" widget="monetary"/>
-                        <field name="target_june" widget="monetary"/>
+                        <group>
+                            <field name="target_january" widget="monetary"/>
+                            <field name="target_february" widget="monetary"/>
+                            <field name="target_march" widget="monetary"/>
+                            <field name="target_april" widget="monetary"/>
+                            <field name="target_may" widget="monetary"/>
+                            <field name="target_june" widget="monetary"/>
+                        </group>
+                        <group>
+                            <field name="target_july" widget="monetary"/>
+                            <field name="target_august" widget="monetary"/>
+                            <field name="target_september" widget="monetary"/>
+                            <field name="target_october" widget="monetary"/>
+                            <field name="target_november" widget="monetary"/>
+                            <field name="target_december" widget="monetary"/>
+                        </group>
                     </group>
-                    <group>
-                        <field name="target_july" widget="monetary"/>
-                        <field name="target_august" widget="monetary"/>
-                        <field name="target_september" widget="monetary"/>
-                        <field name="target_october" widget="monetary"/>
-                        <field name="target_november" widget="monetary"/>
-                        <field name="target_december" widget="monetary"/>
-                    </group>
-                </group>
-            </page>
-        </xpath>
-    </field>
-</record>
+                </page>
+            </xpath>
+        </field>
+    </record>
 </odoo>

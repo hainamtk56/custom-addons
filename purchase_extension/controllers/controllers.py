@@ -19,4 +19,3 @@
 #         return http.request.render('purchase_extension.object', {
 #             'object': obj
 #         })
-

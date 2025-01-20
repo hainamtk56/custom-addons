@@ -24,7 +24,8 @@
                     <header>
                         <button class="btn btn-primary"
                                 invisible="create_uid != uid or status not in ['draft', 'rejected']"
-                                type="object" name="action_submit">Submit</button>
+                                type="object" name="action_submit">Submit
+                        </button>
                         <field name="status" widget="statusbar" statusbar_visible="draft,sent,approved,rejected"/>
                     </header>
                     <sheet>
@@ -40,14 +41,18 @@
                                         <field name="partner_id"/>
                                         <field name="is_approver" column_invisible="1"/>
                                         <field name="status" readonly="1"/>
-                                        <button class="btn btn-success me-5" string="Approve" type="object" name="action_approve" invisible="status != 'pending' or create_uid == uid or is_approver != True"/>
-                                        <button class="btn btn-danger" string="Reject" type="object" name="action_reject" invisible="status != 'pending' or create_uid == uid or is_approver != True"/>
+                                        <button class="btn btn-success me-5" string="Approve" type="object"
+                                                name="action_approve"
+                                                invisible="status != 'pending' or create_uid == uid or is_approver != True"/>
+                                        <button class="btn btn-danger" string="Reject" type="object"
+                                                name="action_reject"
+                                                invisible="status != 'pending' or create_uid == uid or is_approver != True"/>
                                     </list>
                                 </field>
                             </page>
                         </notebook>
                     </sheet>
-                <chatter/>
+                    <chatter/>
                 </form>
             </field>
         </record>
@@ -61,7 +66,8 @@
         </record>
 
         <!-- Menu item to access the views -->
-        <menuitem id="menu_plan_sale_order_root" name="Plan Sale Orders" sequence="10" groups="sales_plan.group_business_plan_list_viewer"/>
+        <menuitem id="menu_plan_sale_order_root" name="Plan Sale Orders" sequence="10"
+                  groups="sales_plan.group_business_plan_list_viewer"/>
         <menuitem id="menu_plan_sale_order" name="Plan Sale Orders" parent="menu_plan_sale_order_root"
                   action="action_plan_sale_order" sequence="10"/>
     </data>

@@ -1,4 +1,5 @@
-from odoo import models, fields, api, exceptions
+from odoo import models, fields, exceptions
+
 
 class SaleOder(models.Model):
     _name = 'sale.order'
@@ -22,5 +23,4 @@ class SaleOder(models.Model):
             'res_model': 'plan.sale.order',
             'view_mode': 'form',
             'context': {'default_order_id': self.id}
-            }
-
+        }

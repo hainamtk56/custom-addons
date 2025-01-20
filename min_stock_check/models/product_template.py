@@ -1,6 +1,4 @@
-from odoo import models, fields, api
-from datetime import datetime, timedelta, date
-from odoo.tools import float_compare
+from odoo import models, fields
 
 
 class ProductTemplate(models.Model):

@@ -1,6 +1,8 @@
 # https://claude.ai/chat/b7bce5dc-f936-450f-ac37-db1dbc54fc0c
-from odoo import fields
 from datetime import date, datetime, timedelta
+
+from odoo import fields
+
 
 class MyModel(models.Model):
     _name = 'my.model'

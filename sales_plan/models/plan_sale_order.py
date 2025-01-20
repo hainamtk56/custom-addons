@@ -1,8 +1,7 @@
 # -*- coding: utf-8 -*-
-from pkg_resources import require
 
 from odoo import models, fields, exceptions, api
-from datetime import datetime, timedelta
+
 
 class PlanSaleOrder(models.Model):
     _name = 'plan.sale.order'
@@ -12,7 +11,9 @@ class PlanSaleOrder(models.Model):
     name = fields.Text('Name', required=True)
     order_id = fields.Many2one('sale.order', string='Order', readonly=True, required=True)
     information = fields.Text('Sale plan information', required=True)
-    status = fields.Selection([('draft', 'Draft'), ('sent', 'Sent'), ('approved', 'Approved'), ('rejected', 'Rejected')], string='Status', readonly=True, default='draft')
+    status = fields.Selection(
+        [('draft', 'Draft'), ('sent', 'Sent'), ('approved', 'Approved'), ('rejected', 'Rejected')], string='Status',
+        readonly=True, default='draft')
     approvers = fields.One2many('approver', 'plan_sale_order_id', string='approvers')
 
     @api.model
@@ -23,20 +24,18 @@ class PlanSaleOrder(models.Model):
                 plan.order_id.plan_sale_order_id = plan
         return plans
 
-
     @api.constrains('approvers')
     def _check_approvers(self):
         if not self.approvers:
             raise exceptions.ValidationError("Please add approvers before submit")
         # check duplicate approvers
-        approvers = self.approvers.mapped('partner_id') # sum of approver
-        if len(approvers) != len(self.approvers): # if sum of approver != sum of unique approvers
+        approvers = self.approvers.mapped('partner_id')  # sum of approver
+        if len(approvers) != len(self.approvers):  # if sum of approver != sum of unique approvers
             raise exceptions.ValidationError("Duplicate approvers")
         # current user must not be in approvers
         current_user = self.env.user.partner_id
         if current_user in approvers:
             raise exceptions.ValidationError("You can not be an approver")
-
 
     def action_submit(self):
         for record in self:
@@ -52,10 +51,4 @@ class PlanSaleOrder(models.Model):
             )
             record.status = 'sent'
             for approver in record.approvers:
-                approver.status = 'pending' # set status of each approver to pending
-
-
-
-
-
-
+                approver.status = 'pending'  # set status of each approver to pending

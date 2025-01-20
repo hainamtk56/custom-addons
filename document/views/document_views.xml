@@ -40,7 +40,7 @@
 
     <!-- Menu -->
     <menuitem
-        id="menu_document"
-        name="Document"
-        action="action_document"/>
+            id="menu_document"
+            name="Document"
+            action="action_document"/>
 </odoo>

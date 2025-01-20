@@ -1,4 +1,4 @@
-from odoo import models, fields, exceptions, api
+from odoo import models, fields, exceptions
 
 
 class Appover(models.Model):

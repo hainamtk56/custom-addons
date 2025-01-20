@@ -2,21 +2,21 @@
 <odoo>
     <!-- form view cho budget limit config -->
     <record id="view_budget_limit_config_form" model="ir.ui.view">
-    <field name="name">budget.limit.config.form</field>
-    <field name="model">budget.limit.config</field>
-    <field name="arch" type="xml">
-        <form>
-            <sheet>
-                <field name="config" >
-                    <list>
-                        <field name="staff"/>
-                        <field name="limit"/>
-                    </list>
-                </field>
-            </sheet>
-        </form>
-    </field>
-</record>
+        <field name="name">budget.limit.config.form</field>
+        <field name="model">budget.limit.config</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <field name="config">
+                        <list>
+                            <field name="staff"/>
+                            <field name="limit"/>
+                        </list>
+                    </field>
+                </sheet>
+            </form>
+        </field>
+    </record>
 
     <!-- action cho budget limit config -->
     <record id="action_budget_limit_config" model="ir.actions.act_window">

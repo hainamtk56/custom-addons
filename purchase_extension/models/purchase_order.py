@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 
+from datetime import timedelta
+
 from odoo import models, fields
 from odoo.exceptions import UserError
-from datetime import timedelta
 
 
 class PurchaseOrder(models.Model):

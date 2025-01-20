@@ -1,8 +1,10 @@
-from odoo import fields, models
 from datetime import datetime
 
+from odoo import fields, models
+
+
 class POReportWizard(models.TransientModel):
-    _name='po.report.wizard'
+    _name = 'po.report.wizard'
     _description = "Purchase Order Report Wizard"
 
     def _get_default_month(self):

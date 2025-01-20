@@ -35,7 +35,14 @@ def default_get(self, fields):
 
     return defaults
 
-dùng @api.model_create_multi def create thay @api.model def create
+
+dùng @ api.model_create_multi
+
+
+def create thay @ api.model
+
+
+def create
 
 
 record = self.env['model.name'].browse(record_id)

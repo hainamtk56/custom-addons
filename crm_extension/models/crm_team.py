@@ -1,7 +1,9 @@
+import calendar
+from datetime import datetime
+
 from odoo import models, fields, api
 from odoo.exceptions import ValidationError
-from datetime import datetime
-import calendar
+
 
 class CrmTeam(models.Model):
     _inherit = 'crm.team'
@@ -29,19 +31,20 @@ class CrmTeam(models.Model):
         for team in self:
             team.sale_diff = team.actual_revenue - team.target_revenue
 
-    @api.constrains('target_january', 'target_february', 'target_march', 
+    @api.constrains('target_january', 'target_february', 'target_march',
                     'target_april', 'target_may', 'target_june',
                     'target_july', 'target_august', 'target_september',
                     'target_october', 'target_november', 'target_december')
     def _check_target_values(self):
         for record in self:
             target_fields = ['target_january', 'target_february', 'target_march',
-                           'target_april', 'target_may', 'target_june',
-                           'target_july', 'target_august', 'target_september',
-                           'target_october', 'target_november', 'target_december']
+                             'target_april', 'target_may', 'target_june',
+                             'target_july', 'target_august', 'target_september',
+                             'target_october', 'target_november', 'target_december']
             for field in target_fields:
                 if getattr(record, field) <= 0:
-                    raise ValidationError(f"Target value for {field.replace('target_', '').capitalize()} must be greater than 0")
+                    raise ValidationError(
+                        f"Target value for {field.replace('target_', '').capitalize()} must be greater than 0")
 
     def _compute_actual_revenue(self):
         year = str(datetime.now().year)
@@ -66,9 +69,9 @@ class CrmTeam(models.Model):
             record.actual_revenue = sum(opp.actual_revenue for opp in opportunities)
 
     @api.depends('target_january', 'target_february', 'target_march',
-                    'target_april', 'target_may', 'target_june',
-                    'target_july', 'target_august', 'target_september',
-                    'target_october', 'target_november', 'target_december')
+                 'target_april', 'target_may', 'target_june',
+                 'target_july', 'target_august', 'target_september',
+                 'target_october', 'target_november', 'target_december')
     def _compute_target_revenue(self):
         for record in self:
             month = str(datetime.now().month).zfill(2)

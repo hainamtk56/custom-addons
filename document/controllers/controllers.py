@@ -19,4 +19,3 @@
 #         return http.request.render('document.object', {
 #             'object': obj
 #         })
-

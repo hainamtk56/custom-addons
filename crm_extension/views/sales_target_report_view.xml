@@ -11,7 +11,8 @@
                     <field name="sales_team_ids" widget="many2many_tags"/>
                 </group>
                 <footer>
-                    <button string="Export Data" name="action_generate_target_report" type="object" class="btn-primary"/>
+                    <button string="Export Data" name="action_generate_target_report" type="object"
+                            class="btn-primary"/>
                     <button string="Cancel" class="btn-secondary" special="cancel"/>
                 </footer>
             </form>

@@ -6,7 +6,7 @@ class Document(models.Model):
     _description = 'Custom Document'
     _inherit = ['mail.thread', 'mail.activity.mixin']
 
-    name = fields.Char('Tên tài liệu',required=True)
+    name = fields.Char('Tên tài liệu', required=True)
     file = fields.Binary(string='File', attachment=False)
     file_name = fields.Char('Tên tệp')
 
@@ -38,8 +38,3 @@ class Document(models.Model):
                 })
 
         return documents
-
-
-
-
-

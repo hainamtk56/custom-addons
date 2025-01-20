@@ -1,7 +1,9 @@
 # models/sales_report_wizard.py
-from odoo import models, fields
-from datetime import datetime
 import calendar
+from datetime import datetime
+
+from odoo import models, fields
+
 
 class SalesReportWizard(models.TransientModel):
     _name = 'sales.report.wizard'
@@ -17,7 +19,7 @@ class SalesReportWizard(models.TransientModel):
         ('7', 'July'), ('8', 'August'), ('9', 'September'),
         ('10', 'October'), ('11', 'November'), ('12', 'December')
     ], string='Month', required=True, default=_get_default_month)
-    
+
     sales_team_ids = fields.Many2many('crm.team', string='Sales Teams')
 
     def action_generate_detail_report(self):
@@ -36,7 +38,7 @@ class SalesReportWizard(models.TransientModel):
             ('create_date', '<', f'{end_year}-{end_month}-01'),
             ('type', '=', 'opportunity')
         ]
-        
+
         if self.sales_team_ids:
             domain.append(('team_id', 'in', self.sales_team_ids.ids))
 

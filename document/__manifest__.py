@@ -9,10 +9,10 @@
         'views/document_views.xml',
     ],
     'assets': {
-            'web.assets_backend': [
-                'document/static/src/**/*.js',
-                # 'document/static/src/**/*.css',
-            ],
+        'web.assets_backend': [
+            'document/static/src/**/*.js',
+            # 'document/static/src/**/*.css',
+        ],
     },
     'installable': True,
     'application': True,

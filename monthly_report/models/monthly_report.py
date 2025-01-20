@@ -1,16 +1,13 @@
 # -*- coding: utf-8 -*-
 
-from odoo import models, fields, api
+from odoo import models
 from odoo.exceptions import UserError
-from datetime import datetime
-import calendar
 
 
 class monthly_report(models.Model):
     _name = 'monthly.report'
     _inherit = ['mail.thread']
     _description = 'monthly.report'
-
 
     def send_mail(self):
         template = self.env['mail.template'].browse(self.env.ref('monthly_report.mail_template_monthly_report').id)
@@ -28,7 +25,3 @@ class monthly_report(models.Model):
                     print(e)
         else:
             raise UserError("Mail Template not found. Please check the template.")
-
-
-
-

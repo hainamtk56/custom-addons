@@ -34,4 +34,3 @@ Long description of module's purpose
         'views/po_report_views.xml',
     ],
 }
-

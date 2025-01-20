@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 
-from odoo import fields, models, api
 from datetime import datetime
+
+from odoo import fields, models, api
 
 
 class Department(models.Model):

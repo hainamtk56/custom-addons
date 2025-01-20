@@ -8,8 +8,8 @@
             <field name="arch" type="xml">
                 <xpath expr="//header//button[@name='action_preview_sale_order']" position="after">
                     <button class="oe_stat_button" name="action_create_plan_sale_order" type="object"
-                        string="Create Plan Sale Order"
-                        invisible="plan_sale_order_id != False"
+                            string="Create Plan Sale Order"
+                            invisible="plan_sale_order_id != False"
                     >
                     </button>
                 </xpath>

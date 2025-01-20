@@ -38,7 +38,7 @@
             <field name="groups_id" eval="[(4, ref('group_purchasing_staff'))]"/>
         </record>
 
-<!--        tạo người dùng kế toán viên-->
+        <!--        tạo người dùng kế toán viên-->
         <record id="accountant_1" model="res.users">
             <field name="name">Accountant 1</field>
             <field name="login">a1</field>

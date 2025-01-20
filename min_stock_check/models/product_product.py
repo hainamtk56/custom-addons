@@ -61,7 +61,6 @@ class Product(models.Model):
         #         else:
         #             product._mark_done_stock_activities(check_date)
 
-
     def _create_stock_warning_activity(self, check_date, required_qty, on_hand_qty):
         self.ensure_one()
         activity_type_id = self.env.ref('mail.mail_activity_data_warning').id

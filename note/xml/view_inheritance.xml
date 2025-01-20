@@ -6,7 +6,7 @@
         <!-- find field description and add the field
              new_field after it -->
         <xpath expr="//field[@name='description']" position="after">
-          <field name="new_field"/>
+            <field name="new_field"/>
         </xpath>
     </field>
 </record>

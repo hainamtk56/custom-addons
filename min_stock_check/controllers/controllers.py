@@ -19,4 +19,3 @@
 #         return http.request.render('min_stock_check.object', {
 #             'object': obj
 #         })
-
