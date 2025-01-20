@@ -55,7 +55,7 @@ class Appover(models.Model):
         for record in self:
             if all(approver.status == 'approved' for approver in record.plan_sale_order_id.approvers):
                 record.plan_sale_order_id.status = 'approved'
-            elif all(approver.status != 'pending' for approver in record.plan_sale_order_id.approvers):
+            elif any(approver.status == 'rejected' for approver in record.plan_sale_order_id.approvers):
                 record.plan_sale_order_id.status = 'rejected'
             else:
                 record.plan_sale_order_id.status = 'sent'

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="user_to_view_business_plan_menu" model="res.users">
+            <field name="name">User Can View Business Plan Menu</field>
+            <field name="login">u1</field>
+            <field name="password">odoo</field>
+            <field name="email">u1@gmail.com</field>
+            <field name="notification_type">inbox</field>
+            <field name="groups_id" eval="[(4, ref('group_business_plan_list_viewer'))]"/>
+        </record>
+    </data>
+</odoo>
