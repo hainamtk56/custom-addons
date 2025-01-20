@@ -15,14 +15,14 @@ class Product(models.Model):
             ('product_id', '=', self.id),
             ('picking_id.state', 'not in', ['done', 'cancel']),
             ('picking_code', '=', 'outgoing'),
-            ('picking_id.scheduled_date', '>=', check_date),
+            ('picking_id.scheduled_date', '>', check_date),
             ('picking_id.scheduled_date', '<=', last_day_to_check),
         ]
 
         domain_mo = [
             ('product_id', '=', self.id),
             ('raw_material_production_id.state', '!=', 'cancel'),
-            ('raw_material_production_id.date_start', '>=', check_date),
+            ('raw_material_production_id.date_start', '>', check_date),
             ('raw_material_production_id.date_start', '<=', last_day_to_check),
         ]
         do_moves_qty = sum(self.env['stock.move'].search(domain_do).mapped('product_uom_qty'))
@@ -34,7 +34,7 @@ class Product(models.Model):
     def _check_minimum_stock(self):
         today = fields.Date.today()
 
-        products = self.search([('min_stock_qty_day', '>=', 0)])
+        products = self.search([('min_stock_qty_day', '>', 0)])
         for product in products:
             check_days = product.min_stock_qty_day
 
