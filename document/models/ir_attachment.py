@@ -1,10 +1,9 @@
-from odoo import models, fields, api
-from odoo.exceptions import AccessError
+from odoo import models, api
+
 
 class IrAttachment(models.Model):
     _inherit = 'ir.attachment'
 
-    # Override create method để thêm log note khi có attachment mới
     @api.model_create_multi
     def create(self, vals_list):
         attachments = super().create(vals_list)
