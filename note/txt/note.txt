@@ -1,2 +1,3 @@
 Trường Many2one lưu trữ giá trị khóa ngoại (foreign key) trỏ đến bản ghi trong mô hình liên kết.
 Trường One2many chỉ là một liên kết "ảo", được tính toán dựa trên mối quan hệ Many2one trong comodel. Vì vậy, One2many luôn yêu cầu Many2one tồn tại, nhưng chiều ngược lại thì không bắt buộc.
+đọc menu data trong icon debug

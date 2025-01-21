@@ -57,3 +57,18 @@ results = self.env['model.name'].search_read(
     fields=['field1', 'field2'],
     limit=10
 )
+
+# Không nên
+for record in records:
+    record.write({'state': 'done'})
+# Nên dùng
+records.write({'state': 'done'})
+
+# Không nên
+total = 0
+for line in order.order_line:
+    if line.product_id.type == 'service':
+        total += line.price_subtotal
+
+# Nên dùng
+total = sum(order.order_line.filtered(lambda l: l.product_id.type == 'service').mapped('price_subtotal'))
