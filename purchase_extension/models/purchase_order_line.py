@@ -7,8 +7,7 @@ class PurchaseOrderLine(models.Model):
 
     rcm_vendor = fields.Many2one(
         'res.partner',
-        string='Recommended Vendor',
-        domain=[('id', 'in', 'self.product_id.seller_ids')]
+        string='Recommended Vendor'
     )
 
     @api.onchange('product_id')

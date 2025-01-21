@@ -37,10 +37,10 @@ class PurchaseOrder(models.Model):
                 'activity_type_id': self.env.ref('mail.mail_activity_data_todo').id,
                 'summary': f'Review Purchase Order {self.name}',
                 'note': f'''
-                    Vui lòng xem xét đơn hàng:
-                    - Tổng giá trị: {self.amount_total}
-                    - Nhà cung cấp: {self.partner_id.name}
-                    - Phòng ban: {self.department_id.name}
+                    <p>Purchase order need to be confirm:</p></br>
+                    <p>- <b>Total amount:</b> {self.amount_total}</p></br>
+                    <p>- <b>Vendor:</b> {self.partner_id.name}</p></br>
+                    <p>- <b>Department:</b> {self.department_id.name}</p></br>
                 ''',
                 'date_deadline': fields.Date.today() + timedelta(days=7),
                 'user_id': user.id
