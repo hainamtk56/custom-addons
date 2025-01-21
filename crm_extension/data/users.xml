@@ -48,7 +48,7 @@
             <field name="password">odoo</field>
             <field name="email">se1@gmail.com</field>
             <field name="notification_type">inbox</field>
-            <field name="groups_id" eval="[(4, ref('group_sales_employee'))]"/>
+            <field name="groups_id" eval="[(4, ref('crm_extension.group_sales_employee'))]"/>
         </record>
 
         <record id="se2" model="res.users">
@@ -57,8 +57,8 @@
             <field name="password">odoo</field>
             <field name="email">se2@gmail.com</field>
             <field name="notification_type">inbox</field>
-            <field name="groups_id" eval="[(4, ref('group_sales_employee'))]"/>
+            <field name="employee_parent_id" ref="crm_extension.stl2"/>
+            <field name="groups_id" eval="[(4, ref('crm_extension.group_sales_employee'))]"/>
         </record>
-
     </data>
 </odoo>

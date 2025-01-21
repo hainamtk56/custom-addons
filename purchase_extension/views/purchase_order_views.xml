@@ -7,7 +7,6 @@
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='partner_ref']" position="after">
                     <field name="department_id"/>
-                    <field name="binary_file"/>
                 </xpath>
                 <xpath expr="//field[@name='product_id'][1]" position="after">
                     <field name="rcm_vendor"/>

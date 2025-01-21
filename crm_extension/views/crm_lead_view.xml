@@ -11,14 +11,10 @@
                     <field name="sales_team_member_ids" invisible="1"/>
                 </xpath>
                 <xpath expr="//button[@name='%(crm.crm_lead_lost_action)d'][1]" position="attributes">
-                    <attribute name="invisible">type == 'lead' or not active and probability &lt; 100 or priority == '3'
-                        and not is_manager
-                    </attribute>
+                    <attribute name="invisible">type == 'lead' or not active and probability &lt; 100 or priority == '3' and not is_manager</attribute>
                 </xpath>
                 <xpath expr="//button[@name='%(crm.crm_lead_lost_action)d'][2]" position="attributes">
-                    <attribute name="invisible">type == 'opportunity' or probability == 0 and not active or priority ==
-                        '3' and not is_manager
-                    </attribute>
+                    <attribute name="invisible">type == 'opportunity' or probability == 0 and not active or priority == '3' and not is_manager</attribute>
                 </xpath>
                 <xpath expr="//field[@name='user_company_ids']" position="after">
                     <field name="minimum_revenue" readonly="quotation_count >= 1"/>

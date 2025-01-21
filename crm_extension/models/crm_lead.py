@@ -35,10 +35,9 @@ class CRMLead(models.Model):
 
     @api.depends_context('uid')
     def _compute_sales_team_member_ids(self):
+        current_user = self.env.user
         for record in self:
-            current_user = self.env.user
             result = []
-
             if current_user.has_group('crm_extension.group_sales_manager'):
                 # Nếu là manager, lấy tất cả thành viên của mọi team
                 teams = self.env['crm.team'].search([])
@@ -49,7 +48,7 @@ class CRMLead(models.Model):
                 # Nếu không phải manager, chỉ lấy thành viên của team hiện tại
                 if record.team_id and current_user.sale_team_id == record.team_id:
                     result.extend(current_user.sale_team_id.member_ids.ids)
-                    result.append(record.team_id.user_id.id)  # Thêm team leader
+                    result.append(record.team_id.user_id.id)
 
             # Loại bỏ các ID trùng lặp
             result = list(set(result))

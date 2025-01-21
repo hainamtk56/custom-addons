@@ -10,7 +10,6 @@ class PurchaseOrder(models.Model):
     _inherit = 'purchase.order'
 
     department_id = fields.Many2one('hr.department', string='Department', required=True)
-    binary_file = fields.Binary(string="Binary File")
 
     def button_confirm(self):
         current_user = self.env.user

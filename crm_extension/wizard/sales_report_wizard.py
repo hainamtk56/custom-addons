@@ -1,4 +1,3 @@
-# models/sales_report_wizard.py
 import calendar
 from datetime import datetime
 
