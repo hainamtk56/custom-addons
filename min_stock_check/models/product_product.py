@@ -35,7 +35,7 @@ class Product(models.Model):
         for product in products:
             required_qty = product._get_required_quantity_by_date(today)
             on_hand_qty = product.qty_available
-            if float_compare(on_hand_qty, required_qty, precision_rounding=product.uom_id.rounding) < 0:
+            if float_compare(on_hand_qty, required_qty, precision_rounding=product.uom_id.rounding) < 0: # float_is_zero()
                 product._create_stock_warning_activity(
                     today,
                     required_qty,

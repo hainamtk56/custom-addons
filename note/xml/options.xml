@@ -1,0 +1,74 @@
+<!-- 1. Options cho Many2one fields -->
+<field name="partner_id" options="{
+    'no_create': True,                    <!-- Không cho phép tạo mới từ dropdown -->
+    'no_create_edit': True,               <!-- Không cho phép tạo và chỉnh sửa từ dropdown -->
+    'no_open': True,                      <!-- Không cho phép mở form của record được chọn -->
+    'always_reload': True,                <!-- Luôn tải lại domain khi giá trị thay đổi -->
+    'no_quick_create': True,              <!-- Tắt tính năng quick create -->
+    'preview_image': 'image_field',       <!-- Hiển thị preview image từ trường được chỉ định -->
+    'can_create': "expression",           <!-- Biểu thức Python để kiểm soát khả năng tạo mới -->
+    'can_write': "expression"             <!-- Biểu thức Python để kiểm soát khả năng chỉnh sửa -->
+}"/>
+
+<!-- 2. Options cho One2many và Many2many fields -->
+<field name="order_line" options="{
+    'reload_on_button': True,             <!-- Tải lại view khi nhấn button -->
+    'not_delete': True,                   <!-- Không cho phép xóa record -->
+    'create': False,                      <!-- Không cho phép tạo record mới -->
+    'link': False                         <!-- Không cho phép liên kết với record hiện có -->
+}"/>
+
+<!-- 3. Options cho Monetary fields -->
+<field name="amount" options="{
+    'currency_field': 'currency_id',      <!-- Trường chứa loại tiền tệ -->
+    'field_digits': True                  <!-- Sử dụng số thập phân từ currency -->
+}"/>
+
+<!-- 4. Options cho Date/Datetime fields -->
+<field name="date" options="{
+    'datepicker': {                       <!-- Tùy chỉnh datepicker -->
+        'minDate': 'today',               <!-- Ngày nhỏ nhất có thể chọn -->
+        'maxDate': '2024-12-31',          <!-- Ngày lớn nhất có thể chọn -->
+        'showWeek': True                  <!-- Hiển thị số tuần -->
+    }
+}"/>
+
+<!-- 5. Options cho Binary fields -->
+<field name="image" options="{
+    'size': [800, 600],                   <!-- Kích thước tối đa của ảnh -->
+    'accepted_file_extensions': '.jpg,.png',  <!-- Định dạng file được chấp nhận -->
+    'preview_image': True                 <!-- Cho phép xem trước ảnh -->
+}"/>
+
+<!-- 6. Options cho Text Editor -->
+<field name="description" options="{
+    'toolbar': [                          <!-- Tùy chỉnh toolbar của editor -->
+        ['style', ['bold', 'italic']],
+        ['insert', ['link']]
+    ],
+    'height': 300,                        <!-- Chiều cao của editor -->
+    'resizable': True                     <!-- Cho phép resize -->
+}"/>
+
+<!-- 7. Options cho Selection fields -->
+<field name="state" options="{
+    'no_open': True,                      <!-- Không mở form khi click -->
+    'selection_add': [                    <!-- Thêm tùy chọn mới -->
+        ('custom', 'Custom State')
+    ]
+}"/>
+
+<!-- 8. Options cho Kanban views -->
+<kanban options="{
+    'quick_create': False,                <!-- Tắt quick create -->
+    'records_draggable': False,           <!-- Không cho phép kéo thả record -->
+    'group_create': False,                <!-- Không cho phép tạo group mới -->
+    'group_delete': False                 <!-- Không cho phép xóa group -->
+}"/>
+
+<!-- 9. Options cho Tree/List views -->
+<tree options="{
+    'reload_on_create': True,             <!-- Tải lại view sau khi tạo record -->
+    'import': False,                      <!-- Tắt tính năng import -->
+    'export': False                       <!-- Tắt tính năng export -->
+}"/>

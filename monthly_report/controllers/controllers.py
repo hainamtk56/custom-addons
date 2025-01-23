@@ -39,7 +39,7 @@ class MonthlyReport(http.Controller):
 
             month_name = calendar.month_name[int(month)].lower()
             target_field = f'target_{month_name}'
-            target_revenue = getattr(team, target_field, 0.0)
+            target_revenue = getattr(team, target_field, 0.0) # == team[target_field] or 0.0
 
             sale_diff = actual_revenue - target_revenue
 
@@ -75,7 +75,7 @@ class MonthlyReport(http.Controller):
         try:
             data = request.httprequest.data
             data = json.loads(data)
-            if not data.get('token') or data['token'] != "odooneverdie":
+            if data.get('token') != "odooneverdie":
                 return json.dumps({
                     'code': 404,
                     'status': 'error',

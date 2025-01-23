@@ -56,3 +56,7 @@ class MyModel(models.Model):
 
         # Chuyển datetime thành string
         datetime_str_again = fields.Datetime.to_string(datetime_obj)
+
+start = start_of(date(2023, 8, 15), "month") # param 1: date or datetime object, param 2: year, quarter, month, week, day, hour (param 1: datetime), tương tự end_of
+print(start)  # Kết quả: 2023-08-01
+

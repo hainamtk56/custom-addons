@@ -72,3 +72,6 @@ for line in order.order_line:
 
 # Nên dùng
 total = sum(order.order_line.filtered(lambda l: l.product_id.type == 'service').mapped('price_subtotal'))
+
+toán tử child_of trong domain lấy tất cả bản ghi many2one trực tiếp hoặc gián tiếp đến giá trị id
+toán tử parent_of lấy tất cả bản ghi one2many trực tiếp hoặc gián tiếp đến giá trị id

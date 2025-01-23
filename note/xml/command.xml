@@ -1,0 +1,13 @@
+<field name="order_line">
+    [
+        (0, 0, {
+            'product_id': ref('product.product_product_1'),
+            'product_uom_qty': 2,
+            'price_unit': 100
+        }),
+        (1, ref('sale.order_line_1'), {
+            'product_uom_qty': 5,
+            'price_unit': 120
+        }),
+    ]
+</field>
