@@ -3,7 +3,6 @@ import logging
 from odoo import http
 from odoo.http import request
 
-
 _logger = logging.getLogger(__name__)
 
 
@@ -45,7 +44,8 @@ class WarehouseController(http.Controller):
                 "locations": locations_data,
             }
             _logger.info(
-                f"Returning valuation for warehouse ID {wh_id} with total cost {total_cost:.2f} {location.company_id.currency_id.name}"
+                f"Returning valuation for warehouse ID {wh_id} with total cost {total_cost:.2f} "
+                f"{location.company_id.currency_id.name}"
             )
             return {"status": 200, "response": warehouse_data, "message": "Success"}
 

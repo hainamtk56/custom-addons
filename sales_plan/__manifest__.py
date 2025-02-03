@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 {
     'name': "Sales Plan",
 
@@ -9,10 +8,8 @@
     'installable': True,
     'application': True,
 
-    # any module necessary for this one to work correctly
     'depends': ['base', 'hr', 'crm', 'sale', 'mail'],
 
-    # always loaded
     'data': [
         'security/ir.model.access.csv',
         'data/groups.xml',

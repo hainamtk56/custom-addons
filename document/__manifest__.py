@@ -11,7 +11,7 @@
     'assets': {
         'web.assets_backend': [
             'document/static/src/**/*.js',
-            # 'document/static/src/**/*.css',
+            'document/static/src/**/*.css',
         ],
     },
     'installable': True,

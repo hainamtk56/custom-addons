@@ -31,9 +31,7 @@ class ArticleController(http.Controller):
             _logger.error(f"Error in /api/articles: {e}")
             return {"status": 500, "response": [], "message": str(e)}
 
-    @http.route(
-        "/api/articles/<int:article_id>", type="json", auth="public", methods=["GET"]
-    )
+    @http.route("/api/articles/<int:article_id>", type="json", auth="public", methods=["GET"])
     def get_article_details(self, article_id):
         _logger.info(f"GET request received at /api/articles/{article_id}")
         try:
